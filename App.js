@@ -20,6 +20,8 @@ const App = () => {
         <Stack.Screen
           name='Detail'
           component={DetailMovieScreen}
+          options={DetailMovieScreen}
+          options={DetailMovieScreen.headerOptions}
         />
       </Stack.Navigator>
     </NavigationContainer>

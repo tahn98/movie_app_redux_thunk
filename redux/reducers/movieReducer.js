@@ -21,7 +21,7 @@ const nowPlayingReducer = (state = initialState, action) => {
     case FETCHING_MOVIE_FAILURE:
       return { ...state, isFetching: false, errorMessage: action.payload }
     case FETCHING_REFRESH_SUCCESS:
-      return { ...state, isFetching: false, nowPlaying: action.payload }
+      return { ...state, isFetching: false, isRefreshing : false, nowPlaying: action.payload }
     default:
       return state
   }

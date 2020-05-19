@@ -5,7 +5,7 @@ import { AntDesign } from '@expo/vector-icons';
 const MovieCard = ({navigation, id, title, overview, poster, vote }) => {
   return (
     <View>
-      <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Detail')}>
+      <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Detail', {itemId : id})}>
         <View style={styles.innerBackground} />
         <View style={[styles.row, styles.container]}>
           <Image style={styles.image} source={{ uri: `https://image.tmdb.org/t/p/w500/${poster}` }} />

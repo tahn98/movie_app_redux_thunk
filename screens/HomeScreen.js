@@ -6,15 +6,10 @@ import MovieCard from '../components/MovieCard'
 
 const HomeScreen = ({ navigation }) => {
   const [page, setPage] = useState(2)
-
-  const { nowPlaying, errorMessage, isFetching } = useSelector(state => ({
-    nowPlaying: state.nowPlaying,
-    errorMessage: state.errorMessage,
-    isFetching: state.isFetching
-  }))
+  const { nowPlaying, errorMessage, isFetching, isRefreshing } = useSelector(state => state.nowPlayingReducer)
+  const related = useSelector(state => state.relatedReducer)
 
   const dispatch = useDispatch()
-
   useEffect(() => {
     dispatch(fetchMovieNowPlaying())
   }, []);
@@ -53,7 +48,7 @@ const HomeScreen = ({ navigation }) => {
     onEndReached={handleLoadMore}
     refreshControl={
       <RefreshControl
-        refreshing={isFetching}
+        refreshing={isRefreshing}
         onRefresh={onRefresh}
       />
     }>
